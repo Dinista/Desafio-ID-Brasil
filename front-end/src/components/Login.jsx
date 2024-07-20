@@ -59,7 +59,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log(validateForm())
     if (validateForm()) {
       login({ name, email, userRole });
       navigate('/userlist');
