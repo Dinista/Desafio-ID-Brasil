@@ -55,13 +55,13 @@ const UserModal = ({ type, user, onClose }) => {
                 const data = await createUser(newUser);
                 // Criou Usuário
                 alert("Foi criado com sucesso!")
-                onClose;
+                onClose();
 
         } else if (type === 'edit') {
                 await updateUser(user.id, newUser);
                 // Editou Usuário
                 alert("Foi editado com sucesso!")
-                onClose;
+                onClose();
         }
     }catch (error) {
         setError(error.message);
@@ -74,7 +74,7 @@ const UserModal = ({ type, user, onClose }) => {
             await deleteUser(user.id);
             // Deletou Usuário
             alert("O usuário foi deletado com sucesso!")
-            onClose;
+            onClose();
         } catch (error) {
             setError(error.message);
         }
