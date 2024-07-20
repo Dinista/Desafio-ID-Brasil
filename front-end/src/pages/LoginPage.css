@@ -4,11 +4,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    --gradient-start: #F78FAD;
-    --gradient-start-text: '#F78FAD';
-    --gradient-end: #FDEB82;
-    --gradient-end-text: '#FDEB82';
-    background: linear-gradient(33deg, var(--gradient-start), var(--gradient-end));
 }
 
 

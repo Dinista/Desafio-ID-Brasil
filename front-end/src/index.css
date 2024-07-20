@@ -15,14 +15,20 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --gradient-start: #F78FAD;
+  --gradient-start-text: '#F78FAD';
+  --gradient-end: #FDEB82;
+  --gradient-end-text: '#FDEB82';
+  background: linear-gradient(33deg, var(--gradient-start), var(--gradient-end));
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  width: 100vw;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -63,6 +69,19 @@ button:active {
 
 
 @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #ff74b5;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
     color: #213547;
     background-color: #ffffff;

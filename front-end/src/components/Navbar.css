@@ -1,0 +1,46 @@
+.nav-container{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    overflow-x: hidden;
+
+}
+
+nav{
+    display: flex;
+    background-color: white;
+    height: fit-content;
+    justify-content: space-between;
+    padding: 1em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    width: 80%;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(31, 31, 31, 0.1);
+}
+
+.nav-title{
+    font-size: 38px;
+}
+
+.nav-info{
+    display: flex;
+    gap: 2em;
+    justify-content: flex-end;
+}
+
+.nav-user, .nav-email, .nav-role{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.logout-btn{
+    box-shadow: 0 4px 8px rgba(31, 31, 31, 0.1);
+    padding-left: 2em;
+    padding-right: 2em;
+    color: tomato;
+    background-color: white;
+}

@@ -41,12 +41,12 @@ const UserListPage = () => {
   console.log(isAdmin());
 
   return (
-    <div>
+    <section>
       <Navbar />
       { error ? <div>{error}</div> :
         <UserList users={filteredUsers} onFilter={handleFilter} isAdmin = {isAdmin()}/>
       }
-      </div>
+      </section>
   );
 }
 
