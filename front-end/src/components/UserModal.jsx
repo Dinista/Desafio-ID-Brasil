@@ -37,37 +37,42 @@ const UserModal = ({ type, user, onClose }) => {
         city,
       },
     };
-
+    try {
         if (type === 'create') {
-            try {
-                await createUser(newUser);
+                // console.log(newUser)
+                const data = await createUser(newUser);
                 // Criou Usuário
+                console.log(data)
                 onClose();
-            }catch (error) {
-                setError('1' + error.message);
-            }
 
         } else if (type === 'edit') {
-            try {
                 await updateUser(user.id, newUser);
                 // Editou Usuário
                 onClose();
-            }catch (error) {
-                setError("2" + error.message);
-            }
         }
-    };
+    }catch (error) {
+        setError(error.message);
+    }
+};
 
 
   const handleDelete = async () => {
         try {
-          await deleteUser(user.id);
-          // Deletou Usuário
-          onClose();
+            await deleteUser(user.id);
+            // Deletou Usuário
+            alert("O usuário foi deletado com sucesso!")
+            onClose();
         } catch (error) {
-          setError("3" + error.message);
+            setError(error.message);
         }
     };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        handleSave();
+    }
+
 
   return (
     <div>

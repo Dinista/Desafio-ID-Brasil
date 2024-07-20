@@ -38,7 +38,7 @@ export const createUser = async (NewUser) => {
       },
       body: JSON.stringify(NewUser)
     });
-    return await handleResponse(response);
+    return response;
   } catch (error) {
     throw new Error('Erro ao criar usuário: ' + error.message);
   }
