@@ -13,7 +13,7 @@ const App = () => {
           element={ user ? <Navigate to="/userlist" /> : <Navigate to="/login" />} 
           />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/userlist" element={<UserListPage />} />
+        <Route path="/userlist" element={user ? <UserListPage /> : <Navigate to="/login" />} />
         <Route path="*" element={<LoginPage />} />
       </Routes>
   );
