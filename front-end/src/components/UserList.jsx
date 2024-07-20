@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import UserModal from './UserModal';
 
-const UserList = ({ users, onFilter }) => {
+const UserList = ({ users, onFilter, isAdmin}) => {
   const [filter, setFilter] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
   const [modalType, setModalType] = useState('');
@@ -37,7 +37,7 @@ const UserList = ({ users, onFilter }) => {
           value={filter}
           onChange={handleFilterChange}
         />
-        <button onClick={handleCreate}>Criar Novo Usuário</button>
+        {isAdmin && <button onClick={handleCreate}>Criar Novo Usuário</button>}
       </div>
       <table>
         <thead>
@@ -46,7 +46,7 @@ const UserList = ({ users, onFilter }) => {
             <th>Usuário</th>
             <th>Email</th>
             <th>Endereço</th>
-            <th>Ações</th>
+            {isAdmin && <th>Ações</th>}
           </tr>
         </thead>
         <tbody>
@@ -56,10 +56,12 @@ const UserList = ({ users, onFilter }) => {
               <td>{user.username}</td>
               <td>{user.email}</td>
               <td>{`${user.address.street}, ${user.address.suite}, ${user.address.city}`}</td>
+              { isAdmin &&
               <td>
                 <button onClick={() => handleEdit(user)}>Editar</button>
                 <button onClick={() => handleDelete(user)}>Excluir</button>
               </td>
+              }
             </tr>
           )): <p>Usuário não encontrado :(</p>}
         </tbody>

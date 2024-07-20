@@ -6,7 +6,7 @@ import { getUsers } from '../services/ApiUsers';
 
 
 const UserListPage = () => {
-  const { user } = useAuth();
+  const { isAdmin } = useAuth();
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [error, setError] = useState(null);
@@ -38,13 +38,13 @@ const UserListPage = () => {
     setFilteredUsers(filtered);
   };
   
-
+  console.log(isAdmin());
 
   return (
     <div>
       <Navbar />
       { error ? <div>{error}</div> :
-        <UserList users={filteredUsers} onFilter={handleFilter} />
+        <UserList users={filteredUsers} onFilter={handleFilter} isAdmin = {isAdmin()}/>
       }
       </div>
   );

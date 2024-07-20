@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
   const isAdmin = () => {
     // Check admin
     // Return True OR False
-    return user?.userRole === 'admin';
+    return user?.userRole === 'Admin';
   };
 
   return (
