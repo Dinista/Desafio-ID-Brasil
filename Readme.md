@@ -6,11 +6,10 @@ Este é um desafio **Front-end** promovido pela equipe da **ID brasil** que cons
 
 ## Como usar
 
-Primeiramente instale as dependências utilizando package.json com o comando dentro da pasta ./front-end:
+Primeiramente instale as dependências utilizando package.json com o comando dentro da pasta **./front-end**:
 
 ```bash
 
-cd front-end
 npm install
 
 ```
