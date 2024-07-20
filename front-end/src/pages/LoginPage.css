@@ -13,7 +13,6 @@
 
 
 .login-card{
-    width: 25%;
     height: fit-content;
     padding: 2em;
     display: flex;
@@ -27,4 +26,5 @@
     background: linear-gradient(33deg, var(--gradient-start), var(--gradient-end));
     box-shadow: 0 4px 8px rgba(31, 31, 31, 0.1);
     border-radius: 10px;
+    min-width: fit-content;
 }

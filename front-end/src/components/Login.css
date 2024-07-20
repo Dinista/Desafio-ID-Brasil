@@ -2,6 +2,7 @@
     color: red;
     font-size: 0.875rem;
     margin-top: 0.25rem;
+    width: 100%;
   }
 
 
@@ -20,7 +21,7 @@
     padding: 1em;
   }
 
-  #name, #email{
+  #name, #email, #password{
     width: 100%;
   }
 
@@ -28,6 +29,10 @@
 
   input:focus{
     outline: 1px solid #a5a5a5;
+  }
+
+  .input-error{
+    outline: 1px solid #fd3e3e;
   }
 
   .input-field{

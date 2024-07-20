@@ -12,7 +12,7 @@ const Login = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userRole, setUserRole] = useState('User');
+  const [userRole, setUserRole] = useState('Admin');
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({
     name: '',
@@ -76,6 +76,7 @@ const Login = () => {
             placeholder="Nome"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className= {errors.name && "input-error"}
           />
         </div>
         {errors.name && <p className="error">{errors.name}</p>}
@@ -89,6 +90,7 @@ const Login = () => {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className= {errors.email && "input-error"}
         />
         </div>
         {errors.email && <p className="error">{errors.email}</p>}
@@ -102,6 +104,7 @@ const Login = () => {
             placeholder="Senha"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className= {errors.password && "input-error"}
           />
         <button
           type="button"
@@ -120,12 +123,12 @@ const Login = () => {
           id="userRole"
           value={userRole}
           onChange={(e) => setUserRole(e.target.value)}
-        > 
-          <option value="User">Usuário</option>
+        >
           <option value="Admin">Admin</option>
+          <option value="User">Usuário</option>
         </select>
       </div>
-      <button type="submit" className='button-login'>Login</button>
+      <button type="submit" className='button-login'>Entrar</button>
     </form>
   );
 };
