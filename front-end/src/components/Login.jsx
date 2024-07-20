@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import "./Login.css"
+import "./Login.css";
 import { useAuth } from '../context/Auth';
 import { useNavigate } from 'react-router-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faEnvelope, faLock, faUserShield, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const Login = () => {
   const { login } = useAuth();
@@ -28,10 +29,9 @@ const Login = () => {
 
     if (!name.trim()) {
       newErrors.name = 'Nome é obrigatório.';
-    }else if (name.length < 2) {
+    } else if (name.length < 2) {
       newErrors.name = 'Nome deve ter pelo menos 2 caracteres.';
     }
-
 
     if (!email.trim()) {
       newErrors.email = 'Email é obrigatório.';
@@ -59,7 +59,6 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(validateForm())
     if (validateForm()) {
       login({ name, email, userRole });
       navigate('/userlist');
@@ -69,58 +68,64 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit} className='form-container'>
       <div>
-        <label htmlFor="name">Nome:</label>
-        <input
-          id="name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          // required
-          // minLength={2}
-        />
+        <div className='input-field'>
+          <FontAwesomeIcon icon={faUser} />
+          <input
+            id="name"
+            type="text"
+            placeholder="Nome"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
         {errors.name && <p className="error">{errors.name}</p>}
       </div>
       <div>
-        <label htmlFor="email">Email:</label>
+        <div className='input-field'>
+        <FontAwesomeIcon icon={faEnvelope} />
         <input
           id="email"
           type="email"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          // required
         />
+        </div>
         {errors.email && <p className="error">{errors.email}</p>}
       </div>
       <div>
-        <label htmlFor="password">Senha:</label>
-        <input
-          id="password"
-          type={showPassword ? 'text' : 'password'}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          // required
-        />
-        
+        <div className='input-field'>
+          <FontAwesomeIcon icon={faLock} />
+          <input
+            id="password"
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         <button
           type="button"
           onClick={() => setShowPassword(!showPassword)}
+          className="password-toggle"
         >
-          {showPassword ? 'Esconder' : 'Mostrar'} Senha
+          <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
         </button>
+        </div>
         {errors.password && <p className="error">{errors.password}</p>}
       </div>
-      <div>
-        <label htmlFor="userRole">Nível de Usuário:</label>
+      <div className='input-field'>
+        
+        <FontAwesomeIcon icon={faUserShield} />
         <select
           id="userRole"
           value={userRole}
           onChange={(e) => setUserRole(e.target.value)}
-        >
-          <option value="Admin">Admin</option>
+        > 
           <option value="User">Usuário</option>
+          <option value="Admin">Admin</option>
         </select>
       </div>
-      <button type="submit">Login</button>
+      <button type="submit" className='button-login'>Login</button>
     </form>
   );
 };

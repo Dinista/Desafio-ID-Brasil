@@ -21,3 +21,5 @@ e para executar utilize:
 npm run dev
 
 ```
+
+Used fontawesome

@@ -14,7 +14,7 @@
 
 .login-card{
     width: 25%;
-    height: 50%;
+    height: fit-content;
     padding: 2em;
     display: flex;
     flex-direction: column;
