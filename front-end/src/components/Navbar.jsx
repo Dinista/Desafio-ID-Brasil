@@ -8,6 +8,7 @@ const Navbar = () => {
     <nav>
       <p>{user.name} </p>
       <p>{user.email}</p>
+      <p>{user.userRole}</p>
       <button onClick={logout}>
         Logout
       </button>
