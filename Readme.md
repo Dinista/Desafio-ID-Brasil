@@ -10,6 +10,7 @@ Primeiramente instale as dependências utilizando package.json com o comando den
 
 ```bash
 
+cd front-end
 npm install
 
 ```
