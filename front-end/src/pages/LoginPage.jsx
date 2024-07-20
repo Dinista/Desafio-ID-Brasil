@@ -1,10 +1,16 @@
 import React from 'react';
 import Login from '../components/Login';
+import './LoginPage.css'
 
 
 const LoginPage = () => {
   return (
-    <Login/>
+    <div className='login-page-container'>
+      <div className='login-card'>
+        <h1>Login</h1>
+        <Login/>
+      </div>
+    </div>
 );
 
 }

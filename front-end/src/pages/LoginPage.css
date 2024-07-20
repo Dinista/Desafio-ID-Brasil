@@ -1,0 +1,30 @@
+.login-page-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --gradient-start: #F78FAD;
+    --gradient-start-text: '#F78FAD';
+    --gradient-end: #FDEB82;
+    --gradient-end-text: '#FDEB82';
+    background: linear-gradient(33deg, var(--gradient-start), var(--gradient-end));
+}
+
+
+.login-card{
+    width: 25%;
+    height: 50%;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    --gradient-start: #F0EFF0;
+    --gradient-start-text: '#F0EFF0';
+    --gradient-end: #FAF8F9;
+    --gradient-end-text: '#FAF8F9';
+    background: linear-gradient(33deg, var(--gradient-start), var(--gradient-end));
+    box-shadow: 0 4px 8px rgba(31, 31, 31, 0.1);
+    border-radius: 10px;
+}

@@ -67,7 +67,7 @@ const Login = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='form-container'>
       <div>
         <label htmlFor="name">Nome:</label>
         <input
@@ -100,13 +100,14 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           // required
         />
-        {errors.password && <p className="error">{errors.password}</p>}
+        
         <button
           type="button"
           onClick={() => setShowPassword(!showPassword)}
         >
           {showPassword ? 'Esconder' : 'Mostrar'} Senha
         </button>
+        {errors.password && <p className="error">{errors.password}</p>}
       </div>
       <div>
         <label htmlFor="userRole">Nível de Usuário:</label>
