@@ -27,7 +27,7 @@ const UserListPage = () => {
   
   }, []);
 
-  
+  // Definição dos filtros
   // filterInput: String
   
   const handleFilter = (filterInput) => {

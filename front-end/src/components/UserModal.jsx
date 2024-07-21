@@ -71,8 +71,8 @@ const UserModal = ({ type, user, onClose }) => {
                 onClose();
         }
     }catch (error) {
+        setDone(true);
         setError(error.message);
-        setDone(True);
     }
 };
 

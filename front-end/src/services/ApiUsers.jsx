@@ -15,7 +15,7 @@ const handleResponse = async (response) => {
 };
 
 // Get lista de Users
-// response.json OR ERROR
+// () -> response.json OR ERROR
 
 export const getUsers = async () => {
   try {

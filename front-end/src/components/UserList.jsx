@@ -9,12 +9,14 @@ const UserList = ({ users, onFilter, isAdmin}) => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [modalType, setModalType] = useState('');
 
-  //console.log(users)
+  // Handle a pesquisa por filtro
   
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
     onFilter(e.target.value);
   };
+
+  // Handle tipo de modal 
 
   const handleEdit = (user) => {
     setSelectedUser(user);
