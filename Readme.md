@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Este é um desafio **Front-end** promovido pela equipe da **ID brasil** que consiste na concepção de uma aplicação em **React** que tenha uma **listagem de usuários com filtros**, incluindo funcionalidades como **criação**, **edição** e **exclusão de registros**, além de **login/logout** de usuários e **níveis de acesso de usuário** a aplicação.
+Este é um desafio **Front-end** promovido pela equipe da **ID brasil** que consiste na concepção de uma aplicação em **React** que tenha uma **listagem de usuários com filtros**, incluindo funcionalidades como **criação**, **edição** e **exclusão de registros**, além de **login/logout de usuários** e **níveis de acesso de usuário** na aplicação.
 
 ### Interfaces
 
@@ -35,13 +35,14 @@ npm run dev
 
 Neste projeto foi utilizado além do **React** o Freamework **Vite**, que possibilita desenvolver uma aplicação de forma mais ágil e direta, com suporte a Hot Module Replacement (HMR), construção otimizada e uma configuração mínima.
 
-As validações foram feitas sem a utilização de bibliotecas.
+As validações foram feitas sem utilizar biblioteca, com feedBack de erros aos usuário tanto nos Forms como nas requisições a Api. O armazenamento de Login é feito no Local Storage, além da verificação de permissão como Admin
+liberando acesso a criação, adição e exclusão.
 
 ### Bibliotecas
 
-As únicas bibliotecas utilizadas foram:
+As bibliotecas utilizadas foram:
 
-<li>
-    <ul>Fontawesome (Icones)</ul>
-    <ul>React-Router-Dom (Rotas)</ul>
-</li>
+<ul>
+    <li>Fontawesome (Icones)</ul>
+    <li>React-Router-Dom (Rotas)</ul>
+</ul>
