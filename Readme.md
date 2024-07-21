@@ -35,14 +35,13 @@ npm run dev
 
 Neste projeto foi utilizado além do **React** o Freamework **Vite**, que possibilita desenvolver uma aplicação de forma mais ágil e direta, com suporte a Hot Module Replacement (HMR), construção otimizada e uma configuração mínima.
 
-As validações foram feitas sem utilizar biblioteca, com feedBack de erros aos usuário tanto nos Forms como nas requisições a Api. O armazenamento de Login é feito no Local Storage, além da verificação de permissão como Admin
-liberando acesso a criação, adição e exclusão.
+As validações foram feitas sem utilizar biblioteca, com **feedBack de erros** ao usuário tanto nos **Forms** como nas requisições a **Api**. O armazenamento de **Login** é feito no **LocalStorage**, além da verificação de permissão como **Admin** liberando acesso a criação, adição e exclusão.
 
 ### Bibliotecas
 
 As bibliotecas utilizadas foram:
 
 <ul>
-    <li>Fontawesome (Icones)</li>
-    <li>React-Router-Dom (Rotas)</li>
+    <li>Fontawesome (Icones);</li>
+    <li>React-Router-Dom (Rotas);</li>
 </ul>
