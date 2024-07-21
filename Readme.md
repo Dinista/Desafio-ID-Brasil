@@ -31,7 +31,7 @@ npm run dev
 
 ## Tecnologias
 
-![image] (https://raw.githubusercontent.com/Dinista/Desafio-ID-Brasil/main/front-end/src/assets/react.svg) React + ![image](https://raw.githubusercontent.com/Dinista/Desafio-ID-Brasil/main/front-end/public/vite.svg) Vite
+![image](https://raw.githubusercontent.com/Dinista/Desafio-ID-Brasil/main/front-end/src/assets/react.svg) React + ![image](https://raw.githubusercontent.com/Dinista/Desafio-ID-Brasil/main/front-end/public/vite.svg) Vite
 
 Neste projeto foi utilizado além do **React** o Freamework **Vite**, que possibilita desenvolver uma aplicação de forma mais ágil e direta, com suporte a Hot Module Replacement (HMR), construção otimizada e uma configuração mínima.
 
@@ -41,7 +41,7 @@ As validações foram feitas sem a utilização de bibliotecas.
 
 As únicas bibliotecas utilizadas foram:
 
-    <li>
-        <ul>Fontawesome (Icones)</ul>
-        <ul>React-Router-Dom (Rotas)</ul>
-    </li>
+<li>
+    <ul>Fontawesome (Icones)</ul>
+    <ul>React-Router-Dom (Rotas)</ul>
+</li>
