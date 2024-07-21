@@ -27,11 +27,15 @@ const Login = () => {
       password: '',
     };
 
+    // Verifica Nome
+
     if (!name.trim()) {
       newErrors.name = 'Nome é obrigatório.';
     } else if (name.length < 2) {
       newErrors.name = 'Nome deve ter pelo menos 2 caracteres.';
     }
+
+    // Verifica Email
 
     if (!email.trim()) {
       newErrors.email = 'Email é obrigatório.';
@@ -41,6 +45,8 @@ const Login = () => {
         newErrors.email = 'Email inválido.';
       }
     }
+
+    // Verifica Senha
 
     if (!password.trim()) {
       newErrors.password = 'Senha é obrigatória.';

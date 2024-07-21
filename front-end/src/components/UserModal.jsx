@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createUser, updateUser, deleteUser } from '../services/ApiUsers';
-import './UserModal.css'
+import './UserModal.css';
+import Loader from './Loader';
 
 const UserModal = ({ type, user, onClose }) => {
   const [name, setName] = useState('');
@@ -10,6 +11,8 @@ const UserModal = ({ type, user, onClose }) => {
   const [suite, setSuite] = useState('');
   const [city, setCity] = useState('');
   const [error, setError] = useState(null); // erro ações
+
+  const [done, setDone] = useState(true) // Verifica se terminou de receber a response da API
 
 
   const [formErrors, setformErrors] = useState({
@@ -55,31 +58,41 @@ const UserModal = ({ type, user, onClose }) => {
         if (type === 'create') {
                 const data = await createUser(newUser);
                 // Criou Usuário
-                alert("Foi criado com sucesso!")
+                setDone(true);
+                alert("Foi criado com sucesso!");
                 onClose();
+                
 
         } else if (type === 'edit') {
                 await updateUser(user.id, newUser);
                 // Editou Usuário
+                setDone(true);
                 alert("Foi editado com sucesso!")
                 onClose();
         }
     }catch (error) {
         setError(error.message);
+        setDone(True);
     }
 };
 
+// Handle de deletar Usuário
 
   const handleDelete = async () => {
+        setDone(false);
         try {
             await deleteUser(user.id);
             // Deletou Usuário
+            setDone(true);
             alert("O usuário foi deletado com sucesso!")
             onClose();
         } catch (error) {
+            setDone(true);
             setError(error.message);
         }
     };
+
+  // Validação do Forms de edição e criação
 
     const validateModalForm = () => {
       const newErrors = {
@@ -167,12 +180,15 @@ const UserModal = ({ type, user, onClose }) => {
         return !!value; // verifica se existe erro.
       });
     }
+
+    // Handle de verificação Forms
     
     const handleSubmit = (e) => {
         e.preventDefault();
-  
+        
 
         if(validateModalForm()){
+          setDone(false)
           handleSave();
         }
     };
@@ -254,7 +270,7 @@ const UserModal = ({ type, user, onClose }) => {
               {formErrors.address.city && <p className="error-modal">{formErrors.address.city}</p>}
             <div className='btn-modal-container'>
               <button type="submit" className='btn-submit-edit'>
-                Gravar
+                {done ? 'Gravar' : <Loader/>}
               </button>
               <button type="button" onClick={onClose} className='btn-delete-edit'>
                 Cancelar
@@ -264,7 +280,7 @@ const UserModal = ({ type, user, onClose }) => {
         ) : (
           <div>
             <p>Você tem certeza que quer <strong>excluir</strong> o usuário <strong>{user.name}</strong>?</p>
-            <button onClick={handleDelete} className='btn-subimit-delete'>Confirmar</button>
+            <button onClick={handleDelete} className='btn-subimit-delete'>{done ? 'Confirmar' : <Loader/>}</button>
             <button onClick={onClose}>Cancelar</button>
           </div>
         )}
