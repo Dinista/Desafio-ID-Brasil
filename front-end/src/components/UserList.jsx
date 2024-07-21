@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import './UserList.css';
 import UserModal from './UserModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const UserList = ({ users, onFilter, isAdmin}) => {
   const [filter, setFilter] = useState('');
@@ -29,17 +32,22 @@ const UserList = ({ users, onFilter, isAdmin}) => {
   };
 
   return (
-    <div>
-      <div>
-        <input
-          type="text"
-          placeholder="Filtrar por nome, usuário ou email"
-          value={filter}
-          onChange={handleFilterChange}
-        />
-        {isAdmin && <button onClick={handleCreate}>Criar Novo Usuário</button>}
+    <div className='user-list-card'>
+      <div className='header-list-card'>
+        <div className='input-list'>
+          <FontAwesomeIcon icon={faSearch} />
+            <input
+              type="text"
+              placeholder="Filtrar por nome, usuário ou email"
+              value={filter}
+              onChange={handleFilterChange}
+              className='input-list-search'
+            />
+          
       </div>
-      <table>
+        {isAdmin && <button onClick={handleCreate} className='create-user-btn'>Criar Novo Usuário</button>}
+      </div>
+      <table className="styled-table">
         <thead>
           <tr>
             <th>Nome</th>
@@ -58,14 +66,15 @@ const UserList = ({ users, onFilter, isAdmin}) => {
               <td>{`${user.address.street}, ${user.address.suite}, ${user.address.city}`}</td>
               { isAdmin &&
               <td>
-                <button onClick={() => handleEdit(user)}>Editar</button>
-                <button onClick={() => handleDelete(user)}>Excluir</button>
+                <button onClick={() => handleEdit(user)} className='btn-edit'><FontAwesomeIcon icon={faEdit} /> Editar</button>
+                <button onClick={() => handleDelete(user)} className='btn-delete'><FontAwesomeIcon icon={faTrash} /> Excluir</button>
               </td>
               }
             </tr>
-          )): <p>Usuário não encontrado :(</p>}
+          )): ""}
         </tbody>
       </table>
+      {(filter != '' && users.length == 0) ? <p className='user-not-found'>Usuário não encontrado  :( </p> : ""}
       {modalType && (
         <UserModal
           type={modalType}

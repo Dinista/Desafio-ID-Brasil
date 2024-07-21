@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './UserListPage.css'
 import Navbar from '../components/Navbar';
 import { useAuth } from '../context/Auth';
 import UserList from '../components/UserList';
@@ -41,11 +42,14 @@ const UserListPage = () => {
   console.log(isAdmin());
 
   return (
-    <section>
+    <section className='list-page-padding'>
       <Navbar />
-      { error ? <div>{error}</div> :
-        <UserList users={filteredUsers} onFilter={handleFilter} isAdmin = {isAdmin()}/>
-      }
+      <div className='list-page-container'>
+        { error ? <div className='error error-userlist-load'>{error}</div> :
+            <UserList users={filteredUsers} onFilter={handleFilter} isAdmin = {isAdmin()}/>
+        }
+      </div>
+      
       </section>
   );
 }

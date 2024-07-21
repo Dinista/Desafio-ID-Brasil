@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createUser, updateUser, deleteUser } from '../services/ApiUsers';
+import './UserModal.css'
 
 const UserModal = ({ type, user, onClose }) => {
   const [name, setName] = useState('');
@@ -179,85 +180,91 @@ const UserModal = ({ type, user, onClose }) => {
 
 
   return (
-    <div>
-      <div>
+    <div className='modal-container'>
+      <div className='modal-window'>
         <h2>{type === 'create' ? 'Criar Usuário' : type === 'edit' ? 'Editar Usuário' : 'Excluir Usuário'}</h2>
         {error && <p style={{ color: 'red' }}>Erro: {error}</p>}
         {type !== 'delete' ? (
-          <form onSubmit={handleSubmit}> 
-            <div>
-              <label>Nome:</label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              {formErrors.name && <p className="error">{formErrors.name}</p>}
+          <form onSubmit={handleSubmit} className='form-modal'> 
+            <div className="input-modal">
+                <label>Nome</label>
+                <input
+                  className={formErrors.name ? "input-modal-it input-modal-it-error" : "input-modal-it"}
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder='Informe o nome...'
+                />
             </div>
-            <div>
-              <label>Nome de Usuário:</label>
+            {formErrors.name && <p className="error-modal">{formErrors.name}</p>}
+            <div className="input-modal">
+              <label>Nome de Usuário</label>
               <input
+                className= {formErrors.username ? "input-modal-it input-modal-it-error" : "input-modal-it"}
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                //required={type === 'create'} // obrigatorio para criação
-                //minLength={2}
+                placeholder='Informa o nome de usuário...'
               />
-              {formErrors.username && <p className="error">{formErrors.username}</p>}
             </div>
-            <div>
-              <label>Email:</label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                //required={type === 'create'} // obrigatorio para criação
-              />
-              {formErrors.email && <p className="error">{formErrors.email}</p>}
-            </div>
-            <div>
-              <label>Rua:</label>
-              <input
-                type="text"
-                value={street}
-                onChange={(e) => setStreet(e.target.value)}
-                //required={type === 'create'} // obrigatorio para criação
-              />
-              {formErrors.address.street && <p className="error">{formErrors.address.street}</p>}
-            </div>
-            <div>
-              <label>Número:</label>
-              <input
-                type="text"
-                value={suite}
-                onChange={(e) => setSuite(e.target.value)}
-                //required={type === 'create'} // obrigatorio para criação
-              />
-              {formErrors.address.suite && <p className="error">{formErrors.address.suite}</p>}
-            </div>
-            <div>
-              <label>Cidade:</label>
-              <input
-                type="text"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                //required={type === 'create'} // obrigatorio para criação
-              />
-              {formErrors.address.city && <p className="error">{formErrors.address.city}</p>}
-            </div>
-            <div>
-              <button type="submit">
+            {formErrors.username && <p className="error-modal">{formErrors.username}</p>}
+              <div className="input-modal">
+                <label>Email</label>
+                <input
+                  className={formErrors.email ? "input-modal-it input-modal-it-error" : "input-modal-it"}
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder='Infome um e-mail...'
+                />
+              </div>
+              {formErrors.email && <p className="error-modal">{formErrors.email}</p>}
+              <div className="input-modal">
+                <label>Rua</label>
+                <input
+                  className={formErrors.address.street ? "input-modal-it input-modal-it-error" : "input-modal-it"}
+                  type="text"
+                  value={street}
+                  onChange={(e) => setStreet(e.target.value)}
+                  placeholder='Infome a rua...'
+                />
+              </div>
+              {formErrors.address.street && <p className="error-modal">{formErrors.address.street}</p>}
+              <div className="input-modal">
+                <label>Número</label>
+                <input
+                  className={formErrors.address.suite ? "input-modal-it input-modal-it-error" : "input-modal-it"}
+                  type="text"
+                  value={suite}
+                  onChange={(e) => setSuite(e.target.value)}
+                  placeholder='Infome o número...'
+                />
+              </div>
+              {formErrors.address.suite && <p className="error-modal">{formErrors.address.suite}</p>}
+              <div className="input-modal">
+                <label>Cidade</label>
+                <input
+                  className= {formErrors.address.city ? "input-modal-it input-modal-it-error" : "input-modal-it"}
+                  type="text"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  placeholder='Infome a cidade...'
+                />
+              </div>
+              {formErrors.address.city && <p className="error-modal">{formErrors.address.city}</p>}
+            <div className='btn-modal-container'>
+              <button type="submit" className='btn-submit-edit'>
                 Gravar
               </button>
-              <button type="button" onClick={onClose}>
+              <button type="button" onClick={onClose} className='btn-delete-edit'>
                 Cancelar
               </button>
             </div>
           </form>
         ) : (
           <div>
-            <p>Você tem certeza que quer excluir o usuário {user.name}?</p>
-            <button onClick={handleDelete}>Confirmar</button>
+            <p>Você tem certeza que quer <strong>excluir</strong> o usuário <strong>{user.name}</strong>?</p>
+            <button onClick={handleDelete} className='btn-subimit-delete'>Confirmar</button>
             <button onClick={onClose}>Cancelar</button>
           </div>
         )}
